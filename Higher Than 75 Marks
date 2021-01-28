@@ -1,0 +1,20 @@
+-- Ms Sql Server
+SELECT NAME 
+FROM STUDENTS 
+WHERE MARKS > 75 
+ORDER BY RIGHT(NAME, 3), ID ASC;
+
+
+-- Method 2 MS Sql server
+
+SELECT Name
+FROM Students
+WHERE Marks > 75
+ORDER BY SUBSTRing(Name,len(name)-2, 3), Id ASC;
+
+
+-- Oracle
+SELECT Name
+FROM Students
+WHERE Marks > 75
+ORDER BY SUBSTR(Name, - 3), Id ASC;
