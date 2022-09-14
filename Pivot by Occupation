@@ -1,0 +1,8 @@
+Select Max(Case when Occupation='Doctor' then Name end)
+     , Max(Case When occupation='Professor' then Name end)
+     , Max(Case When Occupation='Singer' then Name end)
+     , Max(Case When Occupation='Actor' then Name end) 
+From (Select Name,Occupation, Row_Number() Over (Partition by Occupation order by Name) as SN 
+      From Occupations) A 
+      Group by SN 
+      order by SN
